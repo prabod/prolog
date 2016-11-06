@@ -1,0 +1,8 @@
+sum([],0).
+sum([Head|Tail],Total) :-
+	sum(Tail,Total1),
+	Total is Head + Total1.
+mean(List,X) :-
+	sum(List,Y),
+	Z is length(List),
+	X is Y/Z.

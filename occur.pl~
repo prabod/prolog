@@ -1,0 +1,11 @@
+occurrences(X,[Head|Tail],N).
+occurrences(_,[],0).
+
+occurrences(X,[Head|Tail],N):-
+	X \= Head,
+	occurrences(X,Tail,N).
+
+occurrences(X,[Head|Tail],N):-
+	X = Head,
+	N is N+1,
+	occurrences(X,Tail,N).

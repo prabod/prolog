@@ -1,0 +1,15 @@
+check(Oper,Left,Right):-
+	List =.. [Oper,Left,Right],
+	call(List).
+
+swap(Oper, [A,B|List], [B,A|List]) :-
+	check(Oper, B, A).
+
+swap(Oper, [A|List], [A|NewList]) :-
+	swap(Oper, List, NewList).
+
+sort(Oper,List,Sort):-
+	swap(Oper,List,Sort1),
+	List \= Sort1,
+	sort(Oper,Sort1,Sort),!.
+sort(_,L,L).
